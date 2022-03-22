@@ -1,1 +1,1 @@
-its all about C
+0-isupper.c checks for uppercase characters
