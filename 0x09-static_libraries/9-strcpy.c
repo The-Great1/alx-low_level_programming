@@ -1,21 +1,31 @@
 #include "main.h"
 
 /**
- * _strcpy - copies  src to  dest.
- * @dest:char
- * @src:char
- * Return:char
+ * _strcpy - Swaps integers wih pointers.
+ *
+ * @dest: is a pointer to a char
+ *
+ * @src: is a pointer to a char
+ *
+ * Return: Always 0.
  */
+
 char *_strcpy(char *dest, char *src)
 {
-int i;
+char buff[1000];
+int i = 0, j, pos = 0;
 
-i = 0;
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-dest[i] = '\0';
+while (*(src + i) != '\0')
+{
+	buff[i] = *(src + i);
+	i++;
+}
+
+for (j = 0; *(src + j) != '\0' ; j++)
+{
+	*(dest + pos) = buff[j];
+	pos++;
+}
+dest[j] = '\0';
 return (dest);
 }
