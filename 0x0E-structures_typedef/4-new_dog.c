@@ -6,7 +6,7 @@
  * _strlen - swaps integers with pointers.
  * @s: is a pointer to a char
  *
- * Return: nothing.
+ * Return: i (Success)
 **/
 int _strlen(char *s)
 {
@@ -27,7 +27,7 @@ return (i);
  *
  * @n: is a pointer to an int.
  *
- * Return: Always 0.
+ * Return: Always 0 (Success)
  */
 
 char *_strncpy(char *dest, char *src, int n)
@@ -50,7 +50,7 @@ return (dest);
  * @age: age parameter
  * @owner: owner parameter
  *
- * Return: nothing.
+ * Return: Newdog
 **/
 
 dog_t *new_dog(char *name, float age, char *owner)
