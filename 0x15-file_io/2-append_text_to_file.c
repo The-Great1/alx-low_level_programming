@@ -1,41 +1,49 @@
 #include "main.h"
 
 /**
- * _strlen - finds the length of a string
- * @str: pointer to the string
- *
- * Return: length of the string
+ * _strlen - returns length of string
+ * @s: string
+ * Return: length of string
  */
-size_t _strlen(char *str)
-{
-size_t i;
 
-for (i = 0; str[i]; i++)
-;
-return (i);
+int _strlen(char *s)
+{
+	int len = 0;
+
+	while (s[len] != '\0')
+	{
+		len++;
+	}
+
+	return (len);
 }
 
+
 /**
- * append_text_to_file - appends a text at the end of a file.
- * @filename: name of the file
- * @text_content: NULL terminated string to add at the end of the file
- *
- * Return: 1 on success and -1 on failure
+ * append_text_to_file - appends a text at the end of a file
+ * @filename: name of file
+ * @text_content: text
+ * Return: 1 - success, -1 error
  */
+
 int append_text_to_file(const char *filename, char *text_content)
 {
-int fd;
-ssize_t len;
+	int fd;
+	unsigned int length;
+	ssize_t bytes_written;
 
-if (filename == NULL)
-return (-1);
-fd = open(filename, O_WRONLY | O_APPEND);
-if (fd == -1)
-return (-1);
-if (text_content != NULL)
-len = write(fd, text_content, _strlen(text_content));
-close(fd);
-if (len == -1)
-return (-1);
-return (1);
+	if (filename == NULL)
+		return (-1);
+	if (text_content == NULL)
+		return (1);
+	fd = open(filename, O_WRONLY | O_APPEND);
+	if (fd == -1)
+		return (-1);
+	length = _strlen(text_content);
+
+	bytes_written = write(fd, text_content, length);
+	if (bytes_written == -1)
+		return (-1);
+	close(fd);
+	return (1);
 }
